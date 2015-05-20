@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<title>
+			CrossLabel
+		</title>
+
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+	<body>
+	
+
+		<img id="source_shirt" src="img/shirt.png" class="source"/> 
+		<img id="source_bra" src="img/shirt.png" class="source"/>
+		<img id="source_pant" src="img/shirt.png" class="source"/>
+		<img id="source_sweater" src="img/shirt.png" class="source"/>
+		<img id="source_jacket" src="img/shirt.png" class="source"/>
+		<img id="source_dress" src="img/shirt.png" class="source"/>
+
+		<p>
+			<span class="info-text">
+				Clicking on these buttons means a user did a sort or filter by
+				<br/>
+			</span>
+			<span data-cat="color" class="button sortfilter green">Color</span>
+			<span data-cat="pattern" class="button sortfilter green">Pattern</span>
+			<span data-cat="size" class="button sortfilter green">Size</span>
+			<span data-cat="category" class="button sortfilter green">Category</span>
+			<span data-cat="brand" class="button sortfilter green">Brand</span>
+			<span data-cat="price" class="button sortfilter green">Price</span>
+			<span data-cat="shipsFrom" class="button sortfilter green">Ship From</span>
+			<span data-cat="material" class="button sortfilter green">Material</span>
+			<span data-cat="quality" class="button sortfilter green">Likes</span>
+			<span data-cat="quality" class="button sortfilter green">Views</span>
+			<span data-cat="quality" class="button sortfilter green">Buys</span>
+			<span data-cat="motivation" class="button sortfilter green">Trending</span>
+			<span data-cat="motivation" class="button sortfilter green">Sale</span>
+			<span data-cat="motivation" class="button sortfilter green">New</span>
+		</p>
+		
+		<p>
+			<table width="100%">
+				<tr>
+					<td valign="top" id="productContainer">
+					</td>
+					<td valign="top">
+						<div align="right">
+							<table>
+								<tr>
+									<td class="userpref" align="center" valign="top">
+										Category Weight<br/>
+										<canvas id="catWeightPrefCanvas" width="200" height="200" class="pref"></canvas>
+									</td>
+									<td id="catWeightDetails">
+									</td>
+								</tr>
+							</table>
+						</div>
+						
+						<div id="details_panel">
+							Primary Material: <span id="stat_material"></span>
+							
+							<br/>
+							<br/>
+							
+							<span data-size="XXS" class="button buy green">Buy XXS</span>
+							<span data-size="XS" class="button buy green">Buy XS</span>
+							<span data-size="S" class="button buy green">Buy S</span>
+							<span data-size="M" class="button buy green">Buy M</span>
+							<span data-size="L" class="button buy green">Buy L</span>
+							<span data-size="XL" class="button buy green">Buy XL</span>
+							<span data-size="XXL" class="button buy green">Buy XXL</span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="button like green">Like&nbsp;&nbsp;♥</span>
+						<span class="button click green">Click</span>
+						<span id="next_button" class="button next blue">Skip</span>
+					</td>
+					<td>
+
+					</td>
+				</tr>
+			</table>
+		</p>
+	
+		<table id="stats_table">
+			<tr>
+				<td>
+					<div class="userpref">
+						Color<br/>
+						<canvas id="colorPrefCanvas" width="200" height="200" class="pref"></canvas>
+					</div>
+				</td>
+				<td id="colorDetails" valign="top">
+				</td>
+				<td>
+					<div class="userpref">
+						Pattern<br/>
+						<canvas id="patternPrefCanvas" width="200" height="200" class="pref"></canvas>
+					</div>
+				</td>
+				<td id="patternDetails" valign="top">
+				</td>
+				<td>
+					<div class="userpref">
+						Size<br/>
+						<canvas id="sizePrefCanvas" width="200" height="200" class="pref"></canvas>
+					</div>
+				</td>
+				<td id="sizeDetails" valign="top">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="userpref">
+						Category<br/>
+						<canvas id="catPrefCanvas" width="200" height="200" class="pref"></canvas>
+					</div>
+				</td>
+				<td id="categoryDetails" valign="top">
+				</td>
+				<td>
+					<div class="userpref">
+						Brand<br/>
+						<canvas id="brandPrefCanvas" width="200" height="200" class="pref"></canvas>
+					</div>
+				</td>
+				<td id="brandDetails" valign="top">
+				</td>
+				<td>
+					<div class="userpref">
+						Price<br/>
+						<canvas id="pricePrefCanvas" width="200" height="200" class="pref"></canvas>
+					</div>
+				</td>
+				<td id="priceDetails" valign="top">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="userpref">
+						Ship From<br/>
+						<canvas id="shipPrefCanvas" width="200" height="200" class="pref"></canvas>
+					</div>
+				</td>
+				<td id="shipfromDetails" valign="top">
+				</td>
+				<td>
+					<div class="userpref">
+						Material<br/>
+						<canvas id="materialPrefCanvas" width="200" height="200" class="pref"></canvas>
+					</div>
+				</td>
+				<td id="materialDetails" valign="top">
+				</td>
+				<td>
+					<div class="userpref">
+						Quality<br/>
+						<canvas id="qualityPrefCanvas" width="200" height="200" class="pref"></canvas>
+					</div>
+				</td>
+				<td id="qualityDetails" valign="top">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="userpref">
+						Motivation<br/>
+						<canvas id="motiPrefCanvas" width="200" height="200" class="pref"></canvas>
+					</div>
+				</td>
+				<td id="motivationDetails" valign="top">
+				</td>
+			</tr>
+		</table>
+		
+		<script src="js/plugin/jquery-2.1.4.min.js"></script>
+		
+		<script src="js/persona.js"></script>
+		<script src="js/personas/alex.js"></script>
+		
+		<script src="js/main.js"></script>
+		<script src="js/drawclothing.js"></script>
+		<script src="js/drawpoly.js"></script>
+		<script src="js/weights.js"></script>
+		
+	</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<title>
+			CrossLabel
+		</title>
+		
+		<style>
+			canvas {
+				border:1px solid #000000;
+				float: left;
+			}
+		</style>
+		
+		<script src="../js/plugin/jquery-2.1.4.min.js"></script>
+		
+		<script>
+			function getRandomInt(min, max) {
+				return Math.floor(Math.random() * (max - min)) + min;
+			}	
+	
+			$(document).ready(function() {
+
+				var field = $("#userfield");
+				
+				for (var j=0; j<18; j+=1) {
+				
+					// dynamically create canvas and add it to DOM
+					var canvas = document.createElement("canvas");
+					canvas.className = "mycanvas";
+					canvas.width = 200;
+					canvas.height = 200;
+					field.append(canvas);
+			
+					// generate categories and weights
+					var cats = [];
+					var r = getRandomInt(0, 10);
+					for (var i=0; i<10; i+=1) {
+						var r1 = Math.random(), r2 = Math.random();
+						cats.push({
+							weight : i==r ? (1+Math.max(r1, r2))/2 : Math.min(r1, r2)/2
+						});
+					}
+				
+					// get the canvas
+					var c2 = canvas.getContext('2d');
+					
+					// draw weight polygon
+					c2.fillStyle = '#ff4848';
+					c2.beginPath();
+					
+					var length = 95;
+					var sliceLength = 360/cats.length;
+					
+					for (var i=0; i<cats.length; i+=1) {
+						var cat = cats[i];
+						var weight = cat.weight;
+						var angle = i * sliceLength * (Math.PI/180);
+						
+						var x = 100 + length * weight * Math.cos(angle);
+						var y = 100 + length * weight * Math.sin(angle);
+						cat.coor = [x,y];
+						
+						if (i==0) {
+							c2.moveTo(x, y);
+						} else {
+							c2.lineTo(x, y);
+						}
+					}
+					
+					c2.closePath();
+					c2.fill();
+					
+					// draw lines
+					for (var i=0; i<cats.length; i+=1) {
+						var cat = cats[i];
+						var coor = cat.coor;
+						
+						x = coor[0], y = coor[1];
+						
+						c2.moveTo(100, 100);
+						c2.lineTo(x, y);
+					}
+					
+					c2.strokeStyle = '#ac0000';
+					c2.stroke();
+				}
+			});
+		</script>
+	</head>
+	<body>
+
+		<div id="userfield">
+		</div>
+	
+	</body>
+</html>
